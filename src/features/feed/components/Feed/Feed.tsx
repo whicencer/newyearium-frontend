@@ -1,18 +1,22 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { usePostsStore } from "../../../../store/posts/posts";
 import { getPosts } from "../../../../api/posts";
 import { Message } from "../../../../components/Message/Message";
 
 export const Feed = () => {
   const { setPosts, posts } = usePostsStore();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true);
       try {
         const result = await getPosts();
         setPosts(result);
       } catch (error) {
         console.error('Error fetching data:', error);
+      } finally {
+        setIsLoading(false);
       }
     };
   
@@ -21,6 +25,7 @@ export const Feed = () => {
 
   return (
     <div>
+      {isLoading && <p>Loading...</p>}
       {posts.map((post) => (
         <Message
           key={post._id}
