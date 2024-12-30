@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import Lottie from "lottie-react";
 import treeAnimation from "../assets/tree.json";
 
@@ -7,6 +7,9 @@ type Props = {
 }
 
 const TelegramProvider = ({ children }: Props) => {
+  useEffect(() => {
+    Telegram.WebApp.expand();
+  }, []);
 
   if (!Telegram.WebApp.initData || !Object.keys(Telegram.WebApp.initDataUnsafe).length) {
     return (

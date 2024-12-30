@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { CreatePostForm } from "./features/createPost";
 import { Feed } from "./features/feed/components/Feed/Feed";
 import { useTelegram } from "./hooks/useTelegram";
@@ -7,11 +6,6 @@ import { usePostsStore } from "./store/posts/posts";
 function App() {
   const { webApp } = useTelegram();
   const { postsCount } = usePostsStore();
-
-  useEffect(() => {
-    webApp.expand();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <div>
