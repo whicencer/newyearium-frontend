@@ -9,7 +9,7 @@ export default defineConfig({
     host: true,
     proxy: {
       '/api': {
-        target: 'https://newyearium-backend.onrender.com/api', // Укажите порт, на котором работает ваш API
+        target: 'https://newyearium-backend.vercel.app/api', // Укажите порт, на котором работает ваш API
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
