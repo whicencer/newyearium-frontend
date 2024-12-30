@@ -1,0 +1,32 @@
+.Message_component {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.Message_component img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.Message_content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.Message_username {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.Message_component p {
+  margin: 0;
+}

@@ -1,0 +1,30 @@
+.textarea-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.textarea-label {
+  color: #ffffff;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.textarea-field {
+  resize: none;
+  background-color: #2e2e2e;
+  color: #ffffff;
+  border: 1px solid #444444;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 16px; /* Changed font size to 16px */
+  outline: none;
+}
+
+.textarea-field:focus {
+  box-shadow: 0 0 5px rgba(30, 144, 255, 0.5);
+}
+
+.textarea-field::placeholder {
+  color: #616161; /* Darker placeholder color */
+}
