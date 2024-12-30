@@ -9,7 +9,7 @@ export default defineConfig({
     host: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:3000/api', // Укажите порт, на котором работает ваш API
+        target: 'https://newyearium-backend.onrender.com/api', // Укажите порт, на котором работает ваш API
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
