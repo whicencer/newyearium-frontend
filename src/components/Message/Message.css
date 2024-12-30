@@ -32,12 +32,13 @@
   margin: 0;
 }
 
-.admin_delete_post {
-  position: absolute;
-  top: 5px;
-  right: 5px;
+.admin_actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
   cursor: pointer;
 }
-.admin_delete_post:hover {
-  color: red;
+.admin_actions > button {
+  padding: 4px 12px;
 }

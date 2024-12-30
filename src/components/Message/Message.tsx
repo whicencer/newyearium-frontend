@@ -7,8 +7,10 @@ type MessageProps = {
   id: string;
   text: string;
   user: {
+    userId: string;
     name: string;
     avatar: string;
+    username: string;
   }
 };
 
@@ -29,16 +31,23 @@ export const Message = ({ text, user, id }: MessageProps) => {
   };
 
   return (
-    <div className="Message_component">
+    <>
       {
         isCurrentUserAdmin &&
-        <button className="admin_delete_post" onClick={handleDeletePost}>Delete</button>
+        (
+          <div className="admin_actions">
+            <button className="admin_delete_post" onClick={handleDeletePost}>Delete</button>
+            <span className="admin_info">{user.userId}/{user.username}</span>
+          </div>
+        )
       }
-      <img src={user.avatar} alt={user.name} />
-      <div className="Message_content">
-        <p className="Message_username">{user.name}</p>
-        <p>{text}</p>
+      <div className="Message_component">
+        <img src={user.avatar} alt={user.name} />
+        <div className="Message_content">
+          <p className="Message_username">{user.name}</p>
+          <p>{text}</p>
+        </div>
       </div>
-    </div>
+    </>
   );
 };

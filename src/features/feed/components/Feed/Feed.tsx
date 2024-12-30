@@ -28,7 +28,9 @@ export const Feed = () => {
           text={post.body}
           user={{
             name: post.anonymous ? "Anonym" : post.authorFirstname,
-            avatar: post.anonymous ? "https://ui-avatars.com/api/?name=Anonym" : post.authorAvatar
+            avatar: post.anonymous ? "https://ui-avatars.com/api/?name=Anonym" : post.authorAvatar,
+            userId: post.authorId,
+            username: post.authorUsername
           }}
         />
       ))}
