@@ -1,8 +1,8 @@
-import axios from "axios";
+import apiClient from "..";
 
 export const getPosts = async () => {
   try {
-    const response = await axios.get('https://newyearium-backend.vercel.app/api/posts');
+    const response = await apiClient.get('/api/posts');
     const data = response.data;
 
     if (!data.ok) {

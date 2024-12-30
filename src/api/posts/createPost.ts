@@ -1,4 +1,4 @@
-import axios from "axios";
+import apiClient from "..";
 
 interface PostData {
   authorUsername:  string;
@@ -11,7 +11,7 @@ interface PostData {
 
 export const createPost = async (postData: PostData) => {
   try {
-    const { data } = await axios.post('/api/posts', postData);
+    const { data } = await apiClient.post('/api/posts', postData);
 
     if (!data.ok) {
       throw new Error(data.error);
