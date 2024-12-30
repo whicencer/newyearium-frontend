@@ -54,8 +54,8 @@ const SubscriptionProvider = ({ children }: Props) => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center", textAlign: "center",
-        width: "100vw",
-        height: "100vh",
+        width: "100%",
+        height: "100%",
         gap: 20,
       }}>
         <Lottie
@@ -63,7 +63,7 @@ const SubscriptionProvider = ({ children }: Props) => {
           style={{ width: 200, height: 200 }}
           loop
         />
-        <span style={{ maxWidth: 300, }}>Для использования приложения, подпишитесь на
+        <span style={{ maxWidth: 300 }}>Для использования приложения, подпишитесь на
           <a href="https://t.me/+kYMS7PgDkXVkNDJi"> канал</a>
         </span>
       </div>
