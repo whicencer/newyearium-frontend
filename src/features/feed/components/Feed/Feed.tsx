@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { usePostsStore } from "../../../../store/posts";
+import { usePostsStore } from "../../../../store/posts/posts";
 import { getPosts } from "../../../../api/posts";
 import { Message } from "../../../../components/Message/Message";
 
@@ -24,6 +24,7 @@ export const Feed = () => {
       {posts.map((post) => (
         <Message
           key={post._id}
+          id={post._id}
           text={post.body}
           user={{
             name: post.anonymous ? "Anonym" : post.authorFirstname,
@@ -31,6 +32,24 @@ export const Feed = () => {
           }}
         />
       ))}
+      <button 
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
+        style={{
+          position: 'fixed',
+          bottom: '20px',
+          right: '20px',
+          padding: '10px 20px',
+          fontSize: '16px',
+          backgroundColor: '#007bff',
+          color: '#fff',
+          border: 'none',
+          borderRadius: '5px',
+          cursor: 'pointer',
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+        }}
+      >
+        Up
+      </button>
     </div>
   );
 };

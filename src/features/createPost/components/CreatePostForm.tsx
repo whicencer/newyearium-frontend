@@ -3,7 +3,7 @@ import Button from '../../../components/Button/Button';
 import Input from '../../../components/Input/Input';
 import { useTelegram } from '../../../hooks/useTelegram';
 import { createPost } from '../../../api/posts';
-import { usePostsStore } from '../../../store/posts';
+import { usePostsStore } from '../../../store/posts/posts';
 import { randomPlaceholder } from '../utils/randomPlaceholder';
 import { Switch } from '../../../components/Switch/Switch';
 

@@ -13,4 +13,5 @@ export interface PostsStore {
   postsCount: number;
   setPosts: (posts: Post[]) => void;
   addNewPost: (post: Post) => void;
+  deletePost: (postId: string) => void;
 }

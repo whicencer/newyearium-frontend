@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { Post, PostsStore } from "./posts/types";
+import { Post, PostsStore } from "./types";
 
 export const usePostsStore = create<PostsStore>((set) => ({
   posts: [],
@@ -7,8 +7,14 @@ export const usePostsStore = create<PostsStore>((set) => ({
   setPosts: (posts) => set({ posts, postsCount: posts.length }),
   addNewPost: (post: Post) => {
     set((state) => ({
-      posts: [...state.posts, post],
+      posts: [post, ...state.posts],
       postsCount: state.posts.length + 1,
+    }))
+  },
+  deletePost: (postId: string) => {
+    set((state) => ({
+      posts: state.posts.filter((post) => post._id !== postId),
+      postsCount: state.posts.length - 1,
     }))
   }
 }));

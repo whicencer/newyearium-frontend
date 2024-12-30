@@ -1,7 +1,7 @@
 import { CreatePostForm } from "./features/createPost";
 import { Feed } from "./features/feed/components/Feed/Feed";
 import { useTelegram } from "./hooks/useTelegram";
-import { usePostsStore } from "./store/posts";
+import { usePostsStore } from "./store/posts/posts";
 
 function App() {
   const { webApp } = useTelegram();
