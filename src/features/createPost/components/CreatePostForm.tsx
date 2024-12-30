@@ -13,6 +13,7 @@ const CreatePostForm: React.FC = () => {
   const { userId, user, webApp } = useTelegram();
   const { addNewPost } = usePostsStore();
   const inputPlaceholder = useMemo(() => randomPlaceholder(), []);
+  const [isCreatingPost, setIsCreatingPost] = useState(false);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -25,6 +26,7 @@ const CreatePostForm: React.FC = () => {
       return;
     }
 
+    setIsCreatingPost(true);
     const data = await createPost({
       authorId: String(userId),
       anonymous: isAnonym,
@@ -42,6 +44,8 @@ const CreatePostForm: React.FC = () => {
       addNewPost(data.result);
       webApp.showAlert('🎅 Пост успешно создан!');
     }
+
+    setIsCreatingPost(false);
   };
 
   return (
@@ -52,7 +56,7 @@ const CreatePostForm: React.FC = () => {
         onChange={(e) => setInputValue(e.target.value)}
       />
       <Switch label='Анонимно' value={isAnonym} onChange={setIsAnonym} />
-      <Button type="submit" style={{ width: "100%" }}>Отправить ✉️</Button>
+      <Button disabled={isCreatingPost} type="submit" style={{ width: "100%" }}>Отправить ✉️</Button>
     </form>
   );
 };
