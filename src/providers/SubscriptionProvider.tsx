@@ -55,7 +55,7 @@ const SubscriptionProvider = ({ children }: Props) => {
         alignItems: "center",
         justifyContent: "center", textAlign: "center",
         width: "100%",
-        height: "100%",
+        height: "98vh",
         gap: 20,
       }}>
         <Lottie
