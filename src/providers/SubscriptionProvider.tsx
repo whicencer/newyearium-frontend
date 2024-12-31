@@ -21,7 +21,7 @@ const SubscriptionProvider = ({ children }: Props) => {
       setIsLoading(false);
       return;
     }
-    
+
     checkUserSub(userId)
       .then((res) => {
         setIsUserSubscribed(res);
@@ -76,6 +76,7 @@ const SubscriptionProvider = ({ children }: Props) => {
         <span 
           onClick={() => {
             setWithoutSub(true);
+            webApp.MainButton.hide();
           }} 
           style={{ 
             fontSize: "12px", 
