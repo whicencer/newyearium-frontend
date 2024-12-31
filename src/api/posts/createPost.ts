@@ -1,7 +1,7 @@
 import apiClient from "..";
 
 interface PostData {
-  authorUsername:  string;
+  authorUsername:  string | null;
   authorFirstname: string;
   authorAvatar:    string;
   anonymous:       boolean;
@@ -11,7 +11,7 @@ interface PostData {
 
 export const createPost = async (postData: PostData) => {
   try {
-    const { data } = await apiClient.post('/api/posts', postData);
+    const { data } = await apiClient.post('/api/posts', { ...postData, authorUsername: postData.authorUsername || "no username" });
 
     if (!data.ok) {
       throw new Error(data.error);
