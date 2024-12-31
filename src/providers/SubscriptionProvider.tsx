@@ -13,14 +13,21 @@ const SubscriptionProvider = ({ children }: Props) => {
   const { checkUserSub } = useTelegramBotApi();
   const [isUserSubscribed, setIsUserSubscribed] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [withoutSub, setWithoutSub] = useState(false);
   
   useEffect(() => {
+    if (withoutSub) {
+      setIsUserSubscribed(true);
+      setIsLoading(false);
+      return;
+    }
+    
     checkUserSub(userId)
       .then((res) => {
         setIsUserSubscribed(res);
         setIsLoading(false);
       });
-  }, [checkUserSub, userId]);
+  }, [checkUserSub, userId, withoutSub]);
 
   useEffect(() => {    
     if (!isUserSubscribed && !isLoading) {
@@ -68,7 +75,7 @@ const SubscriptionProvider = ({ children }: Props) => {
         </span>
         <span 
           onClick={() => {
-            setIsUserSubscribed(true);
+            setWithoutSub(true);
           }} 
           style={{ 
             fontSize: "12px", 
