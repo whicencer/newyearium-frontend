@@ -13,21 +13,21 @@ const SubscriptionProvider = ({ children }: Props) => {
   const { checkUserSub } = useTelegramBotApi();
   const [isUserSubscribed, setIsUserSubscribed] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  // const [withoutSub, setWithoutSub] = useState(false);
+  const [withoutSub, setWithoutSub] = useState(false);
   
   useEffect(() => {
-    // if (withoutSub) {
-    //   setIsUserSubscribed(true);
-    //   setIsLoading(false);
-    //   return;
-    // }
+    if (withoutSub) {
+      setIsUserSubscribed(true);
+      setIsLoading(false);
+      return;
+    }
 
     checkUserSub(userId)
       .then((res) => {
         setIsUserSubscribed(res);
         setIsLoading(false);
       });
-  }, [checkUserSub, userId]);
+  }, [checkUserSub, userId, withoutSub]);
 
   useEffect(() => {    
     if (!isUserSubscribed && !isLoading) {
@@ -73,7 +73,7 @@ const SubscriptionProvider = ({ children }: Props) => {
         <span style={{ maxWidth: 300 }}>Для использования приложения, подпишитесь на
           <a href="https://t.me/+kYMS7PgDkXVkNDJi"> канал</a>
         </span>
-        {/* <span 
+        <span 
           onClick={() => {
             webApp.MainButton.hide();
             setWithoutSub(true);
@@ -86,7 +86,7 @@ const SubscriptionProvider = ({ children }: Props) => {
           }}
         >
           Или продолжить без подписки
-        </span> */}
+        </span>
       </div>
     );
   }
