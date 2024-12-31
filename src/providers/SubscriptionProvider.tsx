@@ -66,6 +66,19 @@ const SubscriptionProvider = ({ children }: Props) => {
         <span style={{ maxWidth: 300 }}>Для использования приложения, подпишитесь на
           <a href="https://t.me/+kYMS7PgDkXVkNDJi"> канал</a>
         </span>
+        <span 
+          onClick={() => {
+            setIsUserSubscribed(true);
+          }} 
+          style={{ 
+            fontSize: "12px", 
+            color: "#555", 
+            textDecoration: "underline", 
+            cursor: "pointer" 
+          }}
+        >
+          Или продолжить без подписки
+        </span>
       </div>
     );
   }
