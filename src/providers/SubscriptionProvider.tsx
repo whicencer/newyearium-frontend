@@ -75,8 +75,8 @@ const SubscriptionProvider = ({ children }: Props) => {
         </span>
         <span 
           onClick={() => {
-            setWithoutSub(true);
             webApp.MainButton.hide();
+            setWithoutSub(true);
           }} 
           style={{ 
             fontSize: "12px", 
